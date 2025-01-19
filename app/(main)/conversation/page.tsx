@@ -72,7 +72,7 @@ function Conversationpage() {
       setConversation((prev) => [...prev, aiMessage]);
 
       const payload = {
-        userId: user?.id || null,
+        userId: user?.id,
         prompt: userMessage.message,
         response: aiMessage.message
       };
