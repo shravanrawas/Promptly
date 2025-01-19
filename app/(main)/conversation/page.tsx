@@ -27,7 +27,6 @@ function Conversationpage() {
   const { user } = useUser();
   const dispatch = useDispatch<AppDispatch>();
   const [isSpeaking, setisSpeaking] = useState(false);
-
   const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
   if (!apiKey) {
@@ -190,9 +189,11 @@ function Conversationpage() {
             >
               {message.type === "ai" && (
                 <Image
+                  width={8}
+                  height={8}
                   src="/logo.svg"
                   alt="AI Avatar"
-                  className="h-8 w-8 rounded-full mr-3"
+                  className="w-8 h-8 rounded-full mr-3"
                 />
               )}
 
@@ -257,9 +258,11 @@ function Conversationpage() {
           <div className="flex items-center mt-6 justify-start">
             <div className="flex items-center gap-3">
               <Image
+                width={8}
+                height={8}
                 src="/logo.svg"
                 alt="AI Avatar"
-                className="h-8 w-8 rounded-full animate-spin-slow"
+                className="w-8 h-8 rounded-full animate-spin-slow"
               />
               <span className="text-gray-500 text-sm font-medium animate-pulse">
                 Thinking...
