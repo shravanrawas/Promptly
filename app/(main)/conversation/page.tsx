@@ -10,6 +10,7 @@ import Navbar from "@/components/navbar";
 import { saveSearchPrompt } from "@/app/redux/slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/app/redux/store";
+import Image from "next/image";
 
 
 type ConversationMessage = {
@@ -181,7 +182,7 @@ function Conversationpage() {
               }`}
             >
               {message.type === "ai" && (
-                <img
+                <Image
                   src="/logo.svg"
                   alt="AI Avatar"
                   className="h-8 w-8 rounded-full mr-3"
@@ -248,7 +249,7 @@ function Conversationpage() {
         {isLoading && (
           <div className="flex items-center mt-6 justify-start">
             <div className="flex items-center gap-3">
-              <img
+              <Image
                 src="/logo.svg"
                 alt="AI Avatar"
                 className="h-8 w-8 rounded-full animate-spin-slow"
