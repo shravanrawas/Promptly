@@ -50,34 +50,40 @@ function Conversationpage() {
 
   const handleSendMessage = async () => {
     if (!input.trim()) return;
-
+  
+    if (!user) {
+      console.error("User is not authenticated.");
+      return; 
+    }
+  
     const userMessage: ConversationMessage = { type: "user", message: input };
     setConversation((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
-
+  
     try {
       const chatSession = model.startChat({
         generationConfig,
         history: [],
       });
-
+  
       const result = await chatSession.sendMessage(input);
       const aiResponse = await result.response.text();
-
+  
       const aiMessage: ConversationMessage = {
         type: "ai",
         message: aiResponse.replace(/\*+/g, ""),
       };
       setConversation((prev) => [...prev, aiMessage]);
-
+  
       const payload = {
-        userId: user?.id,
+        userId: user.id, 
         prompt: userMessage.message,
-        response: aiMessage.message
+        response: aiMessage.message,
       };
-
+  
       dispatch(saveSearchPrompt(payload));
+      
       console.log(userMessage.message, aiMessage.message);
     } catch (error) {
       console.error("Error fetching chat response:", error);
@@ -85,6 +91,7 @@ function Conversationpage() {
       setIsLoading(false);
     }
   };
+  
 
   const handleCopy = (message: string) => {
     navigator.clipboard.writeText(message).then(() => {
