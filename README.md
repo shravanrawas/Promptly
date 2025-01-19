@@ -22,6 +22,12 @@ Demo: https://promptly-mu.vercel.app/
   - Authentication: Clerk
   - Mock Backend: MockAPI
 
+## Challenges Faced: 
+
+  -  I faced difficulties in configuring the Gemini AI model with the frontend application due to unfamiliarity with its API and the specific configurations required, such as generation parameters (e.g., temperature, topP, and max tokens). Debugging API requests and ensuring the AI model returned responses in the expected format was challenging.
+     
+  - Solution: I referred to the official Gemini AI documentation, experimented with different configurations, and added logging to ensure accurate requests and responses.  
+
 ## Future Improvements
 
   - Implement advanced analytics for chat history.
