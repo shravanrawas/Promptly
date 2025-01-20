@@ -103,7 +103,6 @@ function Conversationpage() {
 
   const handleSuggestionClick = async (suggestion: string) => {
     setInput(suggestion);
-      handleSendMessage();
   };
 
   const handlePlayAudio = (message: string) => {
